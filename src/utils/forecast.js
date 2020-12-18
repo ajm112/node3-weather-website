@@ -8,9 +8,8 @@ request ({url, json: true }, (error, { body }) => {
             callback('Unable to connect to weather service!', undefined)
         } else if (body.error) {
             callback('Unable to find location.', undefined)
-            console.log(url)
         } else {
-            callback(undefined, body.current.weather_descriptions[0] + '. It is currently ' + body.current.temperature + ' degrees out. It feels like ' + body.current.feelslike + ' degrees.')
+            callback(undefined, body.current.weather_descriptions[0] + '. It is currently ' + body.current.temperature + ' degrees out. It feels like ' + body.current.feelslike + ' degrees. Cloud cover is ' + body.current.cloudcover + '% with a UV index of ' + body.current.uv_index + '.')
         }
     })
 }
